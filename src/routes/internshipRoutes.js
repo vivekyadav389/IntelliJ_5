@@ -3,7 +3,7 @@ const router = express.Router();
 const Internship = require('../models/internship');
 
 // POST /api/internships
-router.post('/', async (req, res) => {
+router.post('/internships', async (req, res) => {
   try {
     const { title, company, location, stipend, duration, description } = req.body;
     if (!title || !company || !location || !duration || !description) {

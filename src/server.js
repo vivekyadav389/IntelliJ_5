@@ -38,10 +38,10 @@ app.get('/', (req, res) => {
 
 // Example middleware
 function isAdmin(req, res, next) {
-    if (req.session && req.session.user && req.session.user.isAdmin) {
-        return next();
-    }
-    res.status(401).redirect('/src/views/home.html');
+  if (req.session && req.session.user && req.session.user.isAdmin) {
+    return next();
+  }
+  res.status(401).redirect('/src/views/home.html');
 }
 
 // Use this middleware on admin routes

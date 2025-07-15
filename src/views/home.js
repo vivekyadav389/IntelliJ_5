@@ -1,10 +1,12 @@
+const API_BASE = 'https://your-app-name.up.railway.app/api';
+
 let allInternships = [];
 
 
 // Fetch internships from backend and render
 async function loadInternships() {
     try {
-        const res = await fetch('/api/internships');
+        const res = await fetch(`${API_BASE}/internships`);
         if (!res.ok) throw new Error('Failed to fetch internships');
         allInternships = await res.json();
         renderInternshipList(allInternships);
