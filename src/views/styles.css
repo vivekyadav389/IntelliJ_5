@@ -1,0 +1,1349 @@
+body {
+    background: url('../public/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #080808;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+p {
+    color: #000;
+    text-align: center;
+}
+
+footer {
+    background-color: #005582;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+button {
+    background: #005582;
+    color: #ffffff;
+    border: none;
+    padding: 9px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    background: #ffffff;
+    margin: 20px 0;
+    padding: 5px;
+    border-radius: 18px;
+    box-shadow: 0 2px 5px rgba(30, 97, 205, 0.43);
+}
+
+
+h2 {
+    color: #214185;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin: 10px 0 5px;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #1182df;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: #005582;
+}
+
+#internshipList {
+    list-style: none;
+    padding: 0;
+}
+
+#internshipList li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#internshipList li:last-child {
+    border-bottom: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+/* Compact and clean search bar container */
+.search-bar-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    background: #ffffffba;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #16181822;
+    padding: 12px 18px;
+    margin: 20px auto 4px auto;
+    max-width: 600px;
+    width: 98%;
+    position: relative;
+}
+
+/* Smaller, white inputs and selects */
+.search-bar-container select,
+.search-bar-container input[type="text"] {
+    border: 2px solid #111;
+    border-radius: 7px;
+    padding: 8px 10px;
+    font-size: 1em;
+    background: #fff;
+    color: #0b0b0b;
+    outline: none;
+    min-width: 100px;
+    transition: border 0.2s;
+}
+
+.search-bar-container select:focus,
+.search-bar-container input[type="text"]:focus {
+    border-color: #1214149d;
+    background: #fff;
+}
+
+/* Search button: keep color, no size change on hover */
+#searchBtn {
+    background: #1c5086;
+    color: #111;
+    border: none;
+    border-radius: 7px;
+    padding: 8px 22px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px #00ffe733;
+}
+
+#searchBtn:hover {
+    background: #007cf0;
+    color: #fff;
+    /* Remove width change on hover */
+}
+
+@media (max-width: 700px) {
+    .search-bar-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 6px;
+        max-width: 98vw;
+    }
+
+    .search-bar-container select,
+    .search-bar-container input[type="text"],
+    #searchBtn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+/* Hide elements */
+.hidden {
+    display: none;
+}
+
+/* Modal styling */
+.modal-hidden {
+    display: none;
+}
+
+
+
+
+
+.error-message {
+    color: red;
+}
+
+/* Instead, use a class for your intended flex containers */
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+
+#applyModal.modal-hidden {
+    display: none !important;
+}
+
+/* Add to styles.css */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 48px;
+    background: rgba(246, 247, 249, 0.85);
+    box-shadow: 0 4px 24px #0a0b0b86;
+    border-bottom: 1px solid #005582;
+    position: relative;
+    z-index: 10;
+    height: 64px;
+    /* or your preferred header height */
+    min-height: 64px;
+    max-height: 64px;
+    overflow: hidden;
+}
+
+/* Make header sticky */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+.main-header .logo {
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.logo-img {
+    height: auto;
+    max-height: 148px;
+    /* fits nicely in a 64px header */
+    width: auto;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 12px #005582);
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.main-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+.main-header nav ul li a {
+    color: #3f4343;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.main-header nav ul li a:hover,
+.main-header nav ul li .nav-btn:hover {
+    color: #070808c7;
+
+}
+
+.nav-btn {
+    background: #2c4b79 !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 12px;
+    padding: 8px 18px;
+    margin-left: 8px;
+    box-shadow: 0 2px 16px rgba(0, 255, 255, 0.15);
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+    background: rgba(0, 255, 255, 0.07);
+    border-radius: 24px;
+    margin: 32px auto 24px auto;
+    max-width: 700px;
+
+}
+
+.hero h1 {
+    color: #003cff;
+    font-size: 2.5em;
+    text-shadow: 0 0 16px #005582;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    color: #100f0f;
+    font-size: 1.3em;
+    margin-bottom: 0;
+}
+
+/* Internship section */
+.internship-section {
+    background: rgba(34, 40, 49, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 24px;
+    padding: 32px 24px;
+    max-width: 700px;
+    margin: 0 auto 32px auto;
+}
+
+.internship-section h2 {
+    color: #0e0f0f;
+    text-shadow: 0 0 8px #111211, 0 0 16px #007cf0;
+    margin-bottom: 18px;
+}
+
+#internshipList {
+    background: rgba(0, 255, 255, 0.04);
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    box-shadow: 0 2px 12px #00ffe733;
+}
+
+#internshipList li {
+    margin-bottom: 18px;
+    padding: 16px;
+    background: rgba(0, 255, 255, 0.07);
+    border-radius: 10px;
+    box-shadow: 0 1px 8px #00ffe722;
+    font-size: 1.1em;
+    transition: background 0.2s;
+}
+
+#internshipList li:hover {
+    background: rgba(0, 255, 255, 0.15);
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Center the profile picture */
+.profile-pic-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 0;
+}
+
+/* Make the image circular and set size */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0b0c0c;
+    background: #f4f4f4;
+    cursor: pointer;
+}
+
+#deletePicBtn {
+    display: block;
+    margin: 0 auto;
+}
+
+#profilePicInput {
+    display: none !important;
+}
+
+.logout-btn {
+    position: absolute;
+    right: 25px;
+    padding: 8px 18px;
+    background: #ff5252;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+/* Futuristic glassmorphism card for the form */
+.profile-pic-container {
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s;
+
+}
+
+.internships-section {
+    background: #f8fdfb;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.43);
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#profileForm {
+    background: #f5f4f4;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 32px 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profileForm label {
+    display: block;
+    margin-bottom: 18px;
+    color: #005582;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+#profileForm input[type="text"],
+#profileForm input[type="email"] {
+    width: 100%;
+    padding: 10px 2px;
+    border-radius: 10px;
+    border: 2px solid #111;
+    background: rgba(255, 255, 255, 0.1);
+    color: #0b0a0a;
+    font-size: 1rem;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+#profileForm input[type="text"]:focus,
+#profileForm input[type="email"]:focus {
+    background: rgba(0, 255, 255, 0.08);
+    box-shadow: 0 0 8px #005582;
+}
+
+#profileForm button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 12px;
+    border: none;
+    background: #005582;
+    color: #232931;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: 0 2px 16px rgba(0, 255, 255, 0.15);
+    transition: background 0.2s, color 0.2s;
+}
+
+#profileForm button[type="submit"]:hover {
+    background: #005582;
+    color: #fff;
+}
+
+/* Futuristic glassmorphism main container */
+.futuristic-main {
+    background: #fff;
+    color: #111;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+    padding: 40px 32px;
+    margin: 32px auto;
+    max-width: 900px;
+}
+
+.futuristic-main * {
+    color: #111 !important;
+}
+
+/* Neon headings */
+.futuristic-main h2,
+.futuristic-main h3 {
+    color: #005582;
+    /* text-shadow: 0 0 8px #005582, 0 0 16px #007cf0; */
+    letter-spacing: 1px;
+}
+
+/* Futuristic buttons */
+.futuristic-main button,
+.futuristic-main input[type="submit"] {
+    background: #005582;
+    color: #232931;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 28px;
+    font-weight: bold;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin: 8px 0;
+    cursor: pointer;
+    box-shadow: 0 2px 16px rgba(0, 255, 255, 0.15);
+    transition: background 0.2s, color 0.2s;
+}
+
+.futuristic-main button:hover,
+.futuristic-main input[type="submit"]:hover {
+    background: #005582;
+    color: #fff;
+}
+
+/* Inputs and selects */
+.futuristic-main input[type="text"],
+.futuristic-main input[type="file"],
+.futuristic-main select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.futuristic-main input[type="text"]:focus,
+.futuristic-main select:focus {
+    background: rgba(0, 255, 255, 0.08);
+    box-shadow: 0 0 8px #005582;
+}
+
+/* Modal styling */
+#applyModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+#applyModal.modal-hidden {
+    display: none !important;
+}
+
+.apply-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00ffe744;
+    padding: 32px 28px 24px 28px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.close-apply-modal-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #007cf0;
+    cursor: pointer;
+}
+
+/* Internship details section */
+#internshipDetails {
+    background: rgba(0, 255, 255, 0.07);
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+    box-shadow: 0 2px 12px #00ffe733;
+    color: #fff;
+}
+
+/* Hamburger styles */
+.nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 12px;
+    z-index: 200;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 4px 0;
+    background: #000;
+    /* Set to black */
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Registration section */
+.SignUp-section {
+    background: rgba(243, 244, 246, 0.825);
+    box-shadow: 0 8px 32px 0 rgba(3, 3, 3, 0.825);
+    border-radius: 24px;
+    padding: 40px 32px;
+    max-width: 420px;
+    margin: 32px auto;
+    color: #fff;
+}
+
+#SignUpForm label {
+    display: block;
+    margin-bottom: 18px;
+    color: #0b0b0b;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+#SignUpForm input[type="text"],
+#SignUpForm input[type="email"],
+#SignUpForm input[type="password"],
+#SignUpForm input[type="file"] {
+    width: 100%;
+    padding: 10px 2px;
+    border-radius: 10px;
+    border: 2px solid #111;
+    background: rgba(255, 255, 255, 0.1);
+    color: #050505ab;
+    font-size: 1rem;
+    margin-top: 6px;
+    margin-bottom: 2px;
+    outline: none;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+#SignUpForm input:focus {
+    background: rgba(0, 255, 255, 0.08);
+    box-shadow: 0 0 8px #005582;
+}
+
+#SignUpForm button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 12px;
+    border: none;
+    background: #005582;
+    color: #232931;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    box-shadow: 0 2px 16px rgba(0, 255, 255, 0.15);
+    transition: background 0.2s, color 0.2s;
+}
+
+#SignUpForm button[type="submit"]:hover {
+    background: #005582;
+    color: #fff;
+}
+
+/* Login section */
+.login-section {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00ffe744;
+    padding: 32px 28px 24px 28px;
+    min-width: 320px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.login-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #007cf0;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.login-section label {
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+    color: #111;
+    font-weight: 500;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: 2px solid #1c5086;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f9f9f9;
+    color: #111;
+    box-sizing: border-box;
+}
+
+.login-section button[type="submit"] {
+    width: 100%;
+    background: #005582;
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.login-section button[type="submit"]:hover {
+    background: #007cf0;
+    color: #fff;
+}
+
+#closeLoginModal {
+    background: #eee;
+    color: #007cf0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 600;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#closeLoginModal:hover {
+    background: #005582;
+    color: #111;
+}
+
+.error-message {
+    color: #ff5252;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* Black border for filters and search button */
+#locationFilter,
+#domainFilter,
+#searchBox,
+
+
+#searchBtn:hover {
+    background: #111111 !important;
+    color: #fff !important;
+
+}
+
+/* Main container for admin panel */
+.futuristic-main {
+    background: #fff !important;
+    color: #111 !important;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+    padding: 40px 32px;
+    margin: 32px auto;
+    max-width: 900px;
+}
+
+/* Card style for each admin section */
+.admin-card {
+    background: #fff;
+    color: #111;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #16171792;
+    padding: 28px 22px 22px 22px;
+    margin: 24px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.admin-card h2 {
+    margin-top: 0;
+    color: #007cf0;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+}
+
+.admin-card form input,
+.admin-card form textarea {
+    border: 2px solid #111;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    color: #111;
+    background: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-card form button[type="submit"] {
+    color: #111;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-weight: bold;
+    font-size: 1.1em;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.admin-card form button[type="submit"]:hover {
+
+    color: #fff;
+}
+
+#postError {
+    color: #ff5252;
+    font-size: 1em;
+    margin-top: 8px;
+}
+
+.admin-card table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    color: #111;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px #00ffe711;
+}
+
+.admin-card th,
+.admin-card td {
+    border: 1px solid #ddd;
+    padding: 10px 8px;
+    text-align: left;
+}
+
+.admin-card th {
+    background: #e6f9f8;
+    color: #007cf0;
+    font-weight: 600;
+}
+
+.admin-card tr:nth-child(even) {
+    background: #f6fcfe;
+}
+
+/* Black border for all text inputs in applyForm */
+#applyForm input[type="text"],
+#applyForm textarea {
+    border: 2px solid #111 !important;
+    color: #111;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+/* Responsive nav */
+@media (max-width: 900px) {
+    .main-header {
+        flex-wrap: wrap;
+        padding: 12px 16px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .main-header nav {
+        width: 100%;
+    }
+
+    .main-header nav ul {
+        flex-direction: column;
+        background: rgba(238, 240, 240, 0.98);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        padding: 24px 0;
+        margin: 0;
+        display: none;
+        box-shadow: 0 8px 32px #00ffe733;
+        z-index: 150;
+    }
+
+    .main-header nav ul.show {
+        display: flex;
+    }
+
+    .main-header nav ul li {
+        margin: 12px 0;
+        text-align: center;
+    }
+
+    .internship-card {
+        flex: 0 0 80vw;
+        min-width: 240px;
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .logo-img {
+        max-height: 90px;
+    }
+}
+
+
+
+.greeting-section {
+    text-align: center;
+    margin: 4px 0 16px 0;
+    background-image: url('../public/greeting.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 0;
+}
+
+.greeting-section h2 {
+    font-size: 2rem;
+    color: #eef1f4;
+    margin-bottom: 8px;
+}
+
+.greeting-section p {
+    color: #8fddef;
+    font-size: 1.1rem;
+}
+
+/* Slider styles */
+.slider-section {
+    width: 99%;
+    overflow: hidden;
+    margin: 24px 2px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    gap: 26px;
+}
+
+.slide {
+    min-width: calc(100% / 3);
+    box-sizing: border-box;
+    padding: 0 8px;
+
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.internship-cards-container {
+    display: flex;
+    gap: 32px;
+    overflow-x: auto;
+    padding: 24px 0 16px 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: #005582 #e6f9f8;
+
+}
+
+.internship-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.internship-cards-container::-webkit-scrollbar-thumb {
+    background: #005582;
+    border-radius: 8px;
+}
+
+.internship-cards-container::-webkit-scrollbar-track {
+    background: #e6f9f8;
+    border-radius: 8px;
+}
+
+.internship-card {
+    flex: 0 0 calc(33.333% - 22px);
+    /* 3 cards per row with gap */
+    min-width: 300px;
+    max-width: 340px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #00ffe722;
+    padding: 24px 20px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-snap-align: start;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Show 4 internship cards in one line on home page */
+.internship-job-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 32px 0 16px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Each card takes 1/4 of the row on large screens */
+.internship-job-container .internship-card {
+    flex: 0 1 calc(25% - 32px);
+    min-width: 260px;
+    max-width: 320px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #07080883;
+    padding: 24px 20px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+/* Responsive: 2 cards per row on tablets, 1 on mobile */
+@media (max-width: 1100px) {
+    .internship-job-container .internship-card {
+        flex: 0 1 calc(50% - 32px);
+    }
+}
+
+@media (max-width: 700px) {
+    .internship-job-container .internship-card {
+        flex: 0 1 100%;
+        min-width: 90vw;
+    }
+}
+
+/* Force white background and black text for internship cards and container */
+.internship-cards-container {
+    background: #fff !important;
+    color: #111 !important;
+}
+
+.internship-card {
+    background: #fff !important;
+    color: #111 !important;
+}
+
+.internship-card * {
+    color: #111 !important;
+    background: transparent !important;
+}
+
+.internship-card:hover {
+    box-shadow: 0 8px 32px #00ffe744;
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Login Modal Overlay */
+#loginModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+#loginModal.modal-hidden {
+    display: none !important;
+}
+
+/* Login Popup Box */
+.login-section {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00ffe744;
+    padding: 32px 28px 24px 28px;
+    min-width: 320px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.login-section h2 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #007cf0;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.login-section label {
+    display: block;
+    text-align: left;
+    margin-bottom: 12px;
+    color: #111;
+    font-weight: 500;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: 2px solid #005582;
+    border-radius: 8px;
+    font-size: 1em;
+    background: #f9f9f9;
+    color: #111;
+    box-sizing: border-box;
+}
+
+
+
+.login-section button[type="submit"]:hover {
+    background: #007cf0;
+    color: #fff;
+}
+
+#closeLoginModal {
+    background: #eee;
+    color: #007cf0;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 600;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+#closeLoginModal:hover {
+    background: #005582;
+    color: #111;
+}
+
+.error-message {
+    color: #ff5252;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+/* Reduce gap below search bar */
+.search-bar-container {
+    margin-bottom: 8px;
+}
+
+/* Optionally, reduce top margin of greeting-section */
+.greeting-section {
+    margin-top: 8px;
+}
+
+/* Internship Details Modal */
+#internshipDetailsModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+#internshipDetailsModal.modal-hidden {
+    display: none !important;
+}
+
+.details-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00ffe744;
+    padding: 32px 28px 24px 28px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #007cf0;
+    cursor: pointer;
+}
+
+/* Apply Modal: same style as internship details modal */
+#applyModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+#applyModal.modal-hidden {
+    display: none !important;
+}
+
+.apply-modal-content {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #00ffe744;
+    padding: 15px 28px 24px 28px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+    text-align: left;
+    position: relative;
+}
+
+.close-apply-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #007cf0;
+    cursor: pointer;
+}
+
+body.admin-bg {
+    background-image: url('../public/signupbg.jpg');
+    /* Update the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body.SignUp-bg {
+    background-image: url('../public/signupbg.jpg');
+    /* Update the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body.home-bg {
+    background-image: url('../public/signupbg.jpg');
+    /* Update the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+body.SignUp-bg {
+    background-image: url('../public/signupbg.jpg');
+    /* Update the path as needed */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#postInternshipForm input[type="text"],
+#postInternshipForm textarea {
+    border: 1px solid #000;
+}
+
+marquee {
+    color: #1976d2;
+    /* Change to any color you like */
+    font-weight: bold;
+    font-size: 1.1em;
+}

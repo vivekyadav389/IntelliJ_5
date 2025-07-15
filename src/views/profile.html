@@ -1,0 +1,57 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="home-bg">
+    <header class="main-header">
+        <div class="logo">
+            <img src="../uploads/PHOTO-2025-06-26-15-09-41-removebg-preview.png" alt="Logo" class="logo-img">
+        </div>
+        <nav>
+            <ul style="display: flex; gap: 24px; align-items: center; margin: 0; padding: 0; list-style: none;">
+                <li><a href="#">Internships</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">💬</a></li><br/>
+                <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        
+            <h2 align="center">Personal Details</h2>
+            <div class="profile-pic-container">
+                <img id="profileImage" src="default-profile.png" alt="Profile Picture" class="profile-pic"
+                    style="cursor:pointer;">
+                <input type="file" id="profilePicInput" accept="image/*"><br/>
+                <button id="deletePicBtn" type="button" style="display:none;margin-top:8px;">Remove Photo</button>
+            </div>
+            <form id="profileForm">
+                <label>Username<input type="text" id="username" placeholder="Username" required></label>
+                <label>Name <input type="text" id="name" placeholder="Full Name" required></label>
+                <label>Email<input type="email" id="email" placeholder="Email" required></label>
+                <label>College<input type="text" id="college" placeholder="College" required></label>
+                <label>Semester<input type="text" id="semester" placeholder="Semester" required></label>
+                <label>Year <input type="text" id="year" placeholder="Year" required></label>
+                <button type="submit">Save</button>
+            </form>
+       
+        <section class="internships-section">
+            <h2>Applied Internships</h2>
+            <ul id="applicationList"></ul>
+        </section>
+    </main>
+    <script src="profile.js"></script>
+</body>
+<footer>
+    &copy; 2025 IntelliJ_5 Internship Portal. All rights reserved.
+</footer>
+
+</html>

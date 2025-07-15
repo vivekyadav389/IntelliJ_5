@@ -1,0 +1,47 @@
+-- Users table
+CREATE TABLE IF NOT EXISTS Users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    college VARCHAR(255) NOT NULL,
+    semester VARCHAR(50) NOT NULL,
+    year VARCHAR(50) NOT NULL,
+    profilePic VARCHAR(255),
+    isAdmin BOOLEAN DEFAULT 0,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Internships table
+CREATE TABLE IF NOT EXISTS Internships (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    domain VARCHAR(255) NOT NULL,
+    postedBy INTEGER NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (postedBy) REFERENCES Users(id)
+);
+
+-- Applications table
+CREATE TABLE IF NOT EXISTS Applications (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    internshipId INTEGER NOT NULL,
+    studentName VARCHAR(255) NOT NULL,
+    collegeName VARCHAR(255) NOT NULL,
+    semester VARCHAR(50) NOT NULL,
+    year VARCHAR(50) NOT NULL,
+    experience TEXT,
+    bio TEXT,
+    resumePath VARCHAR(255),
+    userId INTEGER,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (internshipId) REFERENCES Internships(id),
+    FOREIGN KEY (userId) REFERENCES Users(id)
+);
