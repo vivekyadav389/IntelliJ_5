@@ -1,4 +1,4 @@
-const API_BASE = 'https://your-app-name.up.railway.app/api';
+const API_BASE = 'https://intellij5-production.up.railway.app/api';
 
 let allInternships = [];
 
