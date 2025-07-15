@@ -17,7 +17,7 @@ app.use(session({
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self';"
+    "default-src 'self'; connect-src 'self' https://intellij5-production.up.railway.app; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self';"
   );
   next();
 });
