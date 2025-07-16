@@ -29,7 +29,7 @@ app.use('/api', applicationRoutes);
 // Serve static files from the views directory
 app.use(express.static(path.join(__dirname, 'views')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 // Define the home route
 app.get('/', (req, res) => {
