@@ -1347,3 +1347,55 @@ marquee {
     font-weight: bold;
     font-size: 1.1em;
 }
+
+/* Mobile header styles */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+.logo-img {
+  width: 140px;
+  height: auto;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #333;
+  border-radius: 2px;
+}
+
+@media (max-width: 700px) {
+  .main-header nav ul {
+    flex-direction: column;
+    gap: 16px;
+    background: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 16px 0;
+    display: none;
+  }
+  .main-header nav ul.active {
+    display: flex;
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
