@@ -243,17 +243,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('resize', () => updateSlider(false));
 });
-
-document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('view-details-link')) {
-        e.preventDefault();
-        const internshipId = e.target.dataset.id;
-        const viewedKey = `viewed_internship_${internshipId}`;
-        if (!localStorage.getItem(viewedKey)) {
-            // First time viewing, increment views in backend
-            fetch(`${API_BASE}/internships/${internshipId}/view`, { method: 'POST' });
-            localStorage.setItem(viewedKey, 'true');
-        }
-        // Show details modal or navigate to details page here
-    }
-});
