@@ -53,10 +53,4 @@ if (SignUpForm) {
   };
 }
 
-// Toggle navigation menu on mobile
-document.getElementById('navToggle').addEventListener('click', function() {
-  const navList = document.querySelector('.main-header nav ul');
-  navList.classList.toggle('active');
-});
-
 // You can add more shared JS functions here as needed.
